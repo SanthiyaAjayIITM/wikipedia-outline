@@ -14,6 +14,10 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+@app.get("/")
+def home():
+    return {"message": "Welcome to Wikipedia Outline API. Try /api/outline?country=India"}
+
 @app.get("/api/outline")
 def get_outline(country: str = Query(...)):
     url = f"https://en.wikipedia.org/wiki/{country.replace(' ', '_')}"
