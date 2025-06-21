@@ -1,10 +1,8 @@
-# filename: main.py
-
 from fastapi import FastAPI, Query
 from fastapi.middleware.cors import CORSMiddleware
 import requests
 from bs4 import BeautifulSoup
-from mangum import Mangum  # Required for AWS Lambda/Vercel
+# from mangum import Mangum  # Required for AWS Lambda/Vercel
 
 app = FastAPI()
 
@@ -38,4 +36,4 @@ def get_outline(country: str = Query(...)):
     
     return {"markdown": "\n".join(md)}
 
-handler = Mangum(app)
+# handler = Mangum(app)
